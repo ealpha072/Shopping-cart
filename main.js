@@ -47,18 +47,31 @@ function setAttribute(el,attr){
 
 //dom elements
 const phoneDiv =document.getElementById('phone-row');
+const table = document.querySelector('.table');
+const cartDiv = document.querySelector('.cart');
+let imageInTable = false;
 
 //
 images.forEach(image=>{
 
 	//creating elements
-    const coldiv= document.createElement('div');
+
+	const coldiv= document.createElement('div');
     const imgdiv=document.createElement('div');
     const infodiv=document.createElement('div');
     const divlink =document.createElement('a');
-    const price =document.createElement('h6');
+    const price =document.createElement('h4');
     const img =document.createElement('img');
     const shopbtn =document.createElement('button');
+    //table elements;
+    const row = document.createElement('tr');
+    const data1 = document.createElement('td');
+    const data2 = document.createElement('td');
+    const data3 = document.createElement('td');
+    const data4 = document.createElement('td');
+    const removeBtn = document.createElement('button');
+    const quantity = document.createElement('input');
+
 
     //setting Attributes
     setAttribute(coldiv,{"class":'col-6 col-md-4 style-col'});
@@ -66,10 +79,16 @@ images.forEach(image=>{
     setAttribute(infodiv,{"class":"info"});
     setAttribute(divlink,{"href":''});
     setAttribute(shopbtn,{"class":"btn btn-block btn-primary"});
+    setAttribute(quantity,{"type":"number"});
+    setAttribute(removeBtn,{"class":"btn btn-danger"});
 
     //text contents
     price.textContent= "Ksh "+image.price;
     shopbtn.textContent= "ADD TO CART";
+    removeBtn.textContent = 'Remove'
+    
+    //styling
+    divlink.style.textDecoration="none";
 
     //appending
     imgdiv.appendChild(img);
@@ -77,5 +96,19 @@ images.forEach(image=>{
     divlink.append(imgdiv,infodiv);
     coldiv.appendChild(divlink);
     phoneDiv.appendChild(coldiv);
+
+    //eventlistener
+    shopbtn.addEventListener('click',function updateTable(e){
+    	e.preventDefault();
+    	imageInTable = true;
+    	table.appendChild(row);
+    	setAttribute(img,{"src":image.url});
+    	row.append(data1,data2,data3,data4);
+    	data1.appendChild(img);
+    	data2.innerHTML = image.price;
+    	data3.appendChild(quantity);
+    	data4.appendChild(removeBtn);
+
+    })
 
 })
