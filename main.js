@@ -49,7 +49,6 @@ function setAttribute(el,attr){
 const phoneDiv =document.getElementById('phone-row');
 const table = document.querySelector('.table');
 const cartDiv = document.querySelector('.cart');
-let imageInTable = false;
 
 //
 images.forEach(image=>{
@@ -79,7 +78,7 @@ images.forEach(image=>{
     setAttribute(infodiv,{"class":"info"});
     setAttribute(divlink,{"href":''});
     setAttribute(shopbtn,{"class":"btn btn-block btn-primary"});
-    setAttribute(quantity,{"type":"number"});
+    setAttribute(quantity,{"type":"number","min":"1"});
     setAttribute(removeBtn,{"class":"btn btn-danger"});
 
     //text contents
@@ -100,15 +99,18 @@ images.forEach(image=>{
     //eventlistener
     shopbtn.addEventListener('click',function updateTable(e){
     	e.preventDefault();
-    	imageInTable = true;
     	table.appendChild(row);
-    	setAttribute(img,{"src":image.url});
+    	//setAttribute(img,{"src":image.url});
     	row.append(data1,data2,data3,data4);
-    	data1.appendChild(img);
+    	data1.innerHTML = image.url;
     	data2.innerHTML = image.price;
     	data3.appendChild(quantity);
     	data4.appendChild(removeBtn);
 
+    })
+    removeBtn.addEventListener('click',(e)=>{
+    	e.preventDefault();
+    	table.removeChild(row);
     })
 
 })
