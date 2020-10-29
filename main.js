@@ -78,7 +78,7 @@ images.forEach(image=>{
     setAttribute(infodiv,{"class":"info"});
     setAttribute(divlink,{"href":''});
     setAttribute(shopbtn,{"class":"btn btn-block btn-primary"});
-    setAttribute(quantity,{"type":"number","min":"1","class":"quantity","value":"1"});
+    setAttribute(quantity,{"type":"number","class":"quantity","value":"3"});
     setAttribute(removeBtn,{"class":"btn btn-danger"});
     setAttribute(data2,{"class":"price","value":image.price});
 
@@ -120,17 +120,14 @@ function getTotals(){
 	const prices = document.getElementsByClassName('price');
 	const totals = document.getElementById('total');
 	var itemQuantity = document.getElementsByClassName('quantity');
-	//console.log(itemQuantity);
-	for(var i = 0; i < prices.length; i++){
-		var value = prices[i].innerHTML;
-		value = value.replace(",",'');
-		//console.log(value)
-		var innerTotal = value*itemQuantity;
-		//console.log(innerTotal);
-	}
+	
+    let priceArr = [];
+    for(var i = 0; i < prices.length;i++){
+        var eachPrice = prices[i].innerHTML;
+        eachPrice = eachPrice.replace(',','');
+        eachPrice = parseFloat(eachPrice)
+        priceArr.push(eachPrice)
 
-	for (var i=0;i<itemQuantity.length;i++){
-		var amopunt = itemQuantity.value;
-		console.log(amopunt)
-	}
+    }
+    console.log(priceArr)
 }
