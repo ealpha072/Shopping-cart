@@ -111,8 +111,8 @@ images.forEach(image=>{
     })
     removeBtn.addEventListener('click',(e)=>{
     	e.preventDefault();
-        getTotals();
     	table.removeChild(row);
+        getTotals();
     })
 
 })
@@ -139,10 +139,6 @@ function getTotals(){
         totals +=(priceArr[i]*quantityArr[i])
     }
 
-    if(priceArr.length === 0 && quantityArr.length=== 0){
-        totalsHolder.innerHTML = "Ksh: "
-    }else{
-        totalsHolder.innerHTML = "Ksh "+totals;
-    }
+    totalsHolder.innerHTML = "Ksh "+totals;
     return totalsHolder.innerHTML;
 }
