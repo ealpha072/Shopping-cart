@@ -53,6 +53,7 @@ const cartDiv = document.querySelector('.cart');
 const purchaseButton = document.querySelector('.purchase-btn');
 const confirmPurchase = document.querySelector('#confirm-purchase');
 const itemsHolder = document.querySelector('.item-holder');
+const totalsHolder = document.getElementById('total');
 //
 images.forEach(image=>{
 
@@ -128,7 +129,6 @@ images.forEach(image=>{
 
 function getTotals(){
 	const prices = document.getElementsByClassName('price');
-	const totalsHolder = document.getElementById('total');
 	var itemQuantity = document.getElementsByClassName('quantity');
 	
     let priceArr = [],
@@ -162,12 +162,12 @@ function dataToggle(){
 
 
 function clearCart(){
-    alert('Successfully purchased!!!')
-    itemsHolder.innerHTML ='';
+    itemsHolder.innerHTML = '';
+    totalsHolder.innerHTML = "Ksh 0"
+    alert("Successfully purchased!!!");
 }
 
 confirmPurchase.addEventListener('click',(e)=>{
     e.preventDefault();
-    itemsHolder.innerHTML = '';
-    alert("Successfully purchased!!!");
+    clearCart();
 })
