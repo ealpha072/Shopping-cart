@@ -51,7 +51,8 @@ const phoneDiv =document.getElementById('phone-row');
 const table = document.querySelector('.table');
 const cartDiv = document.querySelector('.cart');
 const purchaseButton = document.querySelector('.purchase-btn');
-
+const confirmPurchase = document.querySelector('#confirm-purchase');
+const itemsHolder = document.querySelector('.item-holder');
 //
 images.forEach(image=>{
 
@@ -104,7 +105,8 @@ images.forEach(image=>{
     shopbtn.addEventListener('click',(e)=>{
     	e.preventDefault();
         purchaseButton.setAttribute("data-target","#purchasemodal")
-    	table.appendChild(row);
+        confirmPurchase.setAttribute("data-dismiss","modal")
+    	itemsHolder.appendChild(row);
     	row.append(data1,data2,data3,data4);
     	//data1.appendChild(img);
         data1.innerHTML = 'TV SET';
@@ -157,3 +159,15 @@ function dataToggle(){
         purchaseButton.removeAttribute('data-target')
     }
 }
+
+
+function clearCart(){
+    alert('Successfully purchased!!!')
+    itemsHolder.innerHTML ='';
+}
+
+confirmPurchase.addEventListener('click',(e)=>{
+    e.preventDefault();
+    itemsHolder.innerHTML = '';
+    alert("Successfully purchased!!!");
+})
