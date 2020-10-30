@@ -78,7 +78,7 @@ images.forEach(image=>{
     setAttribute(infodiv,{"class":"info"});
     setAttribute(divlink,{"href":''});
     setAttribute(shopbtn,{"class":"btn btn-block btn-primary"});
-    setAttribute(quantity,{"type":"number","class":"quantity","value":"3"});
+    setAttribute(quantity,{"type":"number","class":"quantity","value":"1","min":"1"});
     setAttribute(removeBtn,{"class":"btn btn-danger"});
     setAttribute(data2,{"class":"price","value":image.price});
 
@@ -102,7 +102,8 @@ images.forEach(image=>{
     	e.preventDefault();
     	table.appendChild(row);
     	row.append(data1,data2,data3,data4);
-    	data1.innerHTML = image.url;
+    	//data1.appendChild(img);
+        data1.innerHTML = 'TV SET';
     	data2.innerHTML = image.price;
     	data3.appendChild(quantity);
     	data4.appendChild(removeBtn);
@@ -114,6 +115,7 @@ images.forEach(image=>{
     	table.removeChild(row);
         getTotals();
     })
+    quantity.addEventListener('change',getTotals);
 
 })
 
@@ -128,8 +130,8 @@ function getTotals(){
     for(var i = 0; i < prices.length;i++){
         var eachPrice = parseFloat(prices[i].innerHTML.replace(',',''))
         priceArr.push(eachPrice)
-
     }
+    
     for(var i =0; i< itemQuantity.length;i++){
         var eachQuantity = parseFloat(itemQuantity[i].value);
         quantityArr.push(eachQuantity);
