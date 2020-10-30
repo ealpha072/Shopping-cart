@@ -36,13 +36,35 @@
         			<tr>
         				<th>Item</th>
         				<th>Price</th>
-        				<th colspan="2">Quantity</th>
+        				<th colspan="2" class="text-center">Quantity</th>
         			</tr>
         		</thead>
         		<tfoot>
-        			<tr><th>Total :<span id="total"></span></th></tr>
+        			<tr><th>Total :<span id="total">Ksh 0</span></th></tr>
         		</tfoot>
         	</table>
+        </div>
+
+        <div class="text-center purchase">
+          <button class="btn btn-primary text-center" type="button" data-toggle="modal" data-target="#purchasemodal">PURCHASE</button>
+        </div>
+
+        <div class="modal fade" id="purchasemodal" tabindex="-1" role="dialog" aria-labelledby="mymodaltitle" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="mymodaltitle">Purchase request</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              </div>
+              <div class="modal-body">
+                <p>Thank you for purchasing our products, please confirm your purchse by clicking the confirm button below</p>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Confirm Purchase</button>
+              </div>
+            </div>
+          </div>
         </div>
 	</div>
 <script src="main.js"></script>
