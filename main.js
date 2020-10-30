@@ -98,19 +98,20 @@ images.forEach(image=>{
     phoneDiv.appendChild(coldiv);
 
     //eventlistener
-    shopbtn.addEventListener('click',function updateTable(e){
+    shopbtn.addEventListener('click',(e)=>{
     	e.preventDefault();
     	table.appendChild(row);
-    	//setAttribute(img,{"src":image.url});
     	row.append(data1,data2,data3,data4);
     	data1.innerHTML = image.url;
     	data2.innerHTML = image.price;
     	data3.appendChild(quantity);
     	data4.appendChild(removeBtn);
+        getTotals();
 
     })
     removeBtn.addEventListener('click',(e)=>{
     	e.preventDefault();
+        getTotals();
     	table.removeChild(row);
     })
 
@@ -118,16 +119,30 @@ images.forEach(image=>{
 
 function getTotals(){
 	const prices = document.getElementsByClassName('price');
-	const totals = document.getElementById('total');
+	const totalsHolder = document.getElementById('total');
 	var itemQuantity = document.getElementsByClassName('quantity');
 	
-    let priceArr = [];
+    let priceArr = [],
+        quantityArr = [],
+        totals =0;
     for(var i = 0; i < prices.length;i++){
-        var eachPrice = prices[i].innerHTML;
-        eachPrice = eachPrice.replace(',','');
-        eachPrice = parseFloat(eachPrice)
+        var eachPrice = parseFloat(prices[i].innerHTML.replace(',',''))
         priceArr.push(eachPrice)
 
     }
-    console.log(priceArr)
+    for(var i =0; i< itemQuantity.length;i++){
+        var eachQuantity = parseFloat(itemQuantity[i].value);
+        quantityArr.push(eachQuantity);
+    }
+
+    for(var i=0;i<priceArr.length;i++){
+        totals +=(priceArr[i]*quantityArr[i])
+    }
+
+    if(priceArr.length === 0 && quantityArr.length=== 0){
+        totalsHolder.innerHTML = "Ksh: "
+    }else{
+        totalsHolder.innerHTML = "Ksh "+totals;
+    }
+    return totalsHolder.innerHTML;
 }
