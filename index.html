@@ -2,7 +2,7 @@
 <html>
 <head>
 	<title>Shopping Website</title>
-	<link rel="stylesheet" type="text/css" href="styles.css">
+	<!--<link rel="stylesheet" type="text/css" href="styles.css">-->
 	<meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
   	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
   	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
@@ -38,7 +38,8 @@
         				<th>Price</th>
         				<th colspan="2" class="text-center">Quantity</th>
         			</tr>
-        		</thead>
+						</thead>
+						<tbody class="item-holder"></tbody>
         		<tfoot>
         			<tr><th>Total :<span id="total">Ksh 0</span></th></tr>
         		</tfoot>
@@ -61,7 +62,7 @@
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Confirm Purchase</button>
+                <button type="button" class="btn btn-primary" id="confirm-purchase">Confirm Purchase</button>
               </div>
             </div>
           </div>
