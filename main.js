@@ -52,6 +52,8 @@ const table = document.querySelector('.table');
 const cartDiv = document.querySelector('.cart');
 const purchaseButton = document.querySelector('.purchase-btn');
 const confirmPurchase = document.querySelector('#confirm-purchase');
+console.log(confirmPurchase)
+
 const itemsHolder = document.querySelector('.item-holder');
 const totalsHolder = document.getElementById('total');
 //
