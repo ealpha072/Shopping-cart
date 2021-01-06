@@ -10,4 +10,4 @@ In this project, i make a store that sells tv sets and add a working cart that d
   * Application logic
   * Bootstrap Modals
   
-Next similar application will create elements in raw form instead of using document.createElement() every time.
+In the next similar application, i will create elements in raw form instead of using document.createElement() every time.
